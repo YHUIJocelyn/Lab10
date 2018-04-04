@@ -49,12 +49,18 @@ public class Sorting {
     /**
      * Merge sort.
      *
-     * @param array array that needs to be sorted
+     * @param inputArray array that needs to be sorted
      * @return the sorted array, or null on failure
      */
     @SuppressWarnings("unused")
-    private static int[] mergeSort(final int[] array) {
-        return null;
+    private static int[] mergeSort(final int[] inputArray) {
+        if (inputArray.length == 1) {
+            return inputArray;
+        }
+        int midPoint = inputArray.length / 2;
+        int[] first = Arrays.copyOfRange(inputArray, 0, midPoint);
+        int[] second = Arrays.copyOfRange(inputArray, midPoint, inputArray.length);
+        return merge(mergeSort(first), mergeSort(second));
     }
 
     /**
